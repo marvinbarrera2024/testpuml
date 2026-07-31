@@ -1,7 +1,7 @@
 # testpuml
-
 ```plantuml
 @startuml
+
 class Usuario {
   - String nombre
   - String email
@@ -14,5 +14,6 @@ class Pedido {
 }
 
 Usuario "1" -- "0..*" Pedido
-@startuml
+
+@enduml
 ```
