@@ -1,0 +1,48 @@
+@startuml
+' Configuración visual básica
+skinparam classAttributeIconSize 0
+
+' Declaración de clases
+class Usuario {
+  - String id
+  - String nombre
+  - String email
+  + registrarse(): void
+  + iniciarSesion(): Boolean
+}
+
+class Cliente {
+  - String direccionEnvio
+  - String tarjetaCredito
+  + realizarPedido(): Pedido
+}
+
+class Pedido {
+  - String id
+  - Date fecha
+  - String estado
+  + calcularTotal(): Double
+  + cancelar(): Boolean
+}
+
+class LineaPedido {
+  - Integer cantidad
+  - Double precioUnitario
+  + calcularSubtotal(): Double
+}
+
+class Producto {
+  - String codigo
+  - String nombre
+  - Double precio
+  - Integer stock
+  + actualizarStock(cantidad: Integer): void
+}
+
+' Relaciones entre clases
+Usuario <|-- Cliente : Herencia
+Cliente "1" -- "0..*" Pedido : realiza >
+Pedido "1" *-- "1..*" LineaPedido : contiene >
+LineaPedido "0..*" --> "1" Producto : referencia >
+
+@enduml
