@@ -6,6 +6,7 @@ skinparam classAttributeIconSize 0
 class Usuario {
   - String id
   - String nombre
+  - String apellido
   - String email
   + registrarse(): void
   + iniciarSesion(): Boolean
